@@ -10,6 +10,9 @@
     # Helix editor
     # helix.url = "github:helix-editor/helix/master";
     # helix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Zen
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, ... }:
@@ -21,6 +24,7 @@
     nixosConfigurations = {
       nixosmac = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/nixosmac/configuration.nix
           nixos-hardware.nixosModules.apple-t2
@@ -36,7 +40,10 @@
     homeConfigurations = {
       ethan = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit system;
+        };
         modules = [ ./home-manager/home.nix ];
       };
     };
