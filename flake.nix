@@ -11,6 +11,7 @@
     # helix.url = "github:helix-editor/helix/master";
     # helix.inputs.nixpkgs.follows = "nixpkgs";
   };
+
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, ... }:
     let
       lib = nixpkgs.lib;
@@ -19,11 +20,13 @@
     in {
     nixosConfigurations = {
       nixosmac = lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
-          ./configuration.nix
+          ./hosts/nixosmac/configuration.nix
           nixos-hardware.nixosModules.apple-t2
-	];
+       	] ++ [
+          ./hosts/shared/nix.nix
+        ];
       };
       nixos = lib.nixosSystem {
         inherit system;
