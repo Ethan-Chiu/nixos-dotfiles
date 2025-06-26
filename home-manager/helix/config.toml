@@ -1,0 +1,7 @@
+theme = "ayu_dark"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+true-color = true
+color-modes = true

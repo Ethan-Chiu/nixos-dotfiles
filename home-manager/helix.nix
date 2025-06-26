@@ -1,9 +1,10 @@
-{ pkgs, ... }:
-
-{
+{ inputs, pkgs, ... }:
+let
+  helix = inputs.helix.packages.${pkgs.system}.default;
+in {
   programs.helix = {
     enable = true;
-    # package = helix;
+    package = helix;
     defaultEditor = true;
     extraPackages = with pkgs; [
       # Nix
@@ -18,5 +19,5 @@
     hxc = "hx $HOME/.config";
   };
 
-  # xdg.configFile.helix.source = ./helix;
+  xdg.configFile.helix.source = ./helix;
 }

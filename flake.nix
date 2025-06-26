@@ -8,8 +8,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Helix editor
-    # helix.url = "github:helix-editor/helix/master";
-    # helix.inputs.nixpkgs.follows = "nixpkgs";
+    helix.url = "github:helix-editor/helix/master";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
