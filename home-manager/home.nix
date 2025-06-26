@@ -10,6 +10,7 @@
     ./helix.nix
     ./zen.nix
     ./niri.nix
+    ./wezterm.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
