@@ -77,6 +77,11 @@
     # EDITOR = "emacs";
   };
 
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "confirm";
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
