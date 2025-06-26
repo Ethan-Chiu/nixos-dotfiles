@@ -9,6 +9,7 @@
   imports = [
     ./helix.nix
     ./zen.nix
+    ./niri.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

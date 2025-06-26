@@ -13,6 +13,10 @@
 
     # Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    # Niri compositor
+    niri.url = "github:sodiboo/niri-flake/main";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, ... }:
@@ -30,6 +34,7 @@
           nixos-hardware.nixosModules.apple-t2
        	] ++ [
           ./hosts/shared/nix.nix
+          ./hosts/shared/niri.nix
         ];
       };
       nixos = lib.nixosSystem {

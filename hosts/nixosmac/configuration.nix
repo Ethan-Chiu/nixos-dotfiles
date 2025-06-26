@@ -103,6 +103,15 @@
     git
   ];
 
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        .zen-wrapped
+      ''; # or just "zen" if you use unwrapped package
+      mode = "0755";
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
