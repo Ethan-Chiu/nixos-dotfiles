@@ -31,12 +31,28 @@
     };
     systemd-boot.enable = true;
   };
+  boot.initrd.systemd.network.wait-online.enable = false;
 
-
+  
+  systemd.network.wait-online.enable = false;
   networking.hostName = "nixosmac"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      IPv6 = {
+        Enabled = true;
+      };
+      Settings = {
+        AutoConnect = true;
+      };
+    };
+  };
+  networking.networkmanager = {
+    enable = true;  # Easiest to use and most distros use this by default.
+    wifi.backend = "iwd";
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Taipei";
@@ -58,7 +74,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
-
+  services.connman.wifi.backend = "iwd";
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
