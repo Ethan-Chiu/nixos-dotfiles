@@ -107,13 +107,11 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "Ethan";
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "video" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
   #     tree
     ];
   };
-
-  # programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -133,6 +131,9 @@
       mode = "0755";
     };
   };
+
+  # programs.firefox.enable = true;
+  programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -90,7 +90,7 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "confirm";
+    addKeysToAgent = "yes";
     matchBlocks = {
       "github.com" = {
         identityFile = "~/.ssh/github_ed25519";
