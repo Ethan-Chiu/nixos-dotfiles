@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -10,6 +10,7 @@
     ./helix.nix
     ./zen.nix
     ./niri.nix
+    ./swww.nix
     ./wezterm.nix
   ];
 
@@ -36,6 +37,8 @@
     bluetui
 
     lazygit
+
+    
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

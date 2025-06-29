@@ -17,6 +17,8 @@
     # Niri compositor
     niri.url = "github:sodiboo/niri-flake/main";
     niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    swww.url = "github:LGFae/swww";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, ... }:
