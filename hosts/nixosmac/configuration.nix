@@ -35,6 +35,8 @@
 
   
   systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   networking.hostName = "nixosmac"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,6 +48,9 @@
       };
       Settings = {
         AutoConnect = true;
+      };
+      DriverQuirks = {
+        UseDefaultInterface = false;
       };
     };
   };
