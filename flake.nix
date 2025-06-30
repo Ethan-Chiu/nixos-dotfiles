@@ -19,6 +19,8 @@
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
     swww.url = "github:LGFae/swww";
+
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, ... }:

@@ -1,6 +1,13 @@
 { inputs, config, pkgs, ... }:
 
-{
+let
+  alias = {
+      ll = "ls -l";
+      ".." = "cd ..";
+      "gl" = "lazygit";
+      "y" = "yazi";
+    };
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ethan";
@@ -12,6 +19,7 @@
     ./niri.nix
     ./swww.nix
     ./wezterm.nix
+    ./yazi.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -91,10 +99,6 @@
     # EDITOR = "emacs";
   };
 
-  programs.yazi = {
-    enable = true;
-  };
-
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
@@ -108,20 +112,12 @@
 
   programs.bash = {
     enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      ".." = "cd ..";
-      "gl" = "lazygit";
-    };
-  };
+    shellAliases = alias;
+      };
 
   programs.zsh = {
     enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      ".." = "cd ..";
-      "gl" = "lazygit";
-    };
+    shellAliases = alias;
   };
 
   # Let Home Manager install and manage itself.
