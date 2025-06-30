@@ -2,11 +2,10 @@
 
 let
   alias = {
-      ll = "ls -l";
-      ".." = "cd ..";
-      "gl" = "lazygit";
-      "y" = "yazi";
-    };
+    ll = "ls -l";
+    ".." = "cd ..";
+    "gl" = "lazygit";
+  };
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -113,7 +112,7 @@ in {
   programs.bash = {
     enable = true;
     shellAliases = alias;
-      };
+  };
 
   programs.zsh = {
     enable = true;
