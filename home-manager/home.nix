@@ -119,6 +119,25 @@ in {
     shellAliases = alias;
   };
 
+  programs.fzf.enable = true;
+  programs.zoxide = {
+    enable = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
+
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+    ];
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
