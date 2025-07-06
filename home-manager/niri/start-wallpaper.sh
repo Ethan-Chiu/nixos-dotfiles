@@ -15,4 +15,4 @@ if ! swww query &>/dev/null; then
     exit 1
 fi
 
-swww img ~/wallpapers/131029294_p7.jpg
+swww img ~/wallpapers/131029294_p2.jpg

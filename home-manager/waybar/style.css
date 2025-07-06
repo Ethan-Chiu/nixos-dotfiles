@@ -1,0 +1,176 @@
+@import "colors.css";
+
+* {
+	border: none;
+	border-radius: 5px;
+	font-family: "Departure Mono";
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	min-height: 0;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar>box {
+	padding: 0px 10px;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+	color: transparent;
+	background: transparent;
+}
+
+#network {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding: 0px 10px;
+	transition: none;
+	color: @text-dark;
+	background: @green;
+}
+
+#tray {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding: 0px 10px;
+	transition: none;
+	color: @green;
+	background: @white;
+}
+
+
+#memory,
+#cpu,
+#temperature {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	transition: none;
+	color: @text;
+	background: @gray-light;
+}
+
+#pulseaudio,
+#backlight {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	transition: none;
+	color: @text-dark;
+	background: @brown-light;
+}
+
+#battery {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 5px;
+	transition: none;
+	color: @text;
+	background: @gray-dark;
+}
+
+#battery.charging,
+#battery.plugged {
+	color: @text;
+	background-color: @gray-dark;
+}
+
+#battery.critical:not(.charging) {
+	background-color: @gray-dark;
+	color: @text;
+	border-radius: 5px;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes blink {
+	to {
+		color: @orange;
+	}
+}
+
+#clock {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	transition: none;
+	color: @text-dark;
+	background: @orange;
+}
+
+#custom-power {
+	margin-top: 6px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+	border: 2px solid @orange;
+	color: @white;
+	background: @gray-dark;
+}
+
+/* #tags { */
+/* margin-top: 6px; */
+/* margin-left: 12px; */
+/* font-size: 4px; */
+/* margin-bottom: 0px; */
+/* border-radius: 10px; */
+/* background: #161320; */
+/* transition: none; */
+/* } */
+
+/* #tags button { */
+/* transition: none; */
+/* color: #B5E8E0; */
+/* background: transparent; */
+/* font-size: 16px; */
+/* border-radius: 2px; */
+/* } */
+
+/* #tags button.occupied { */
+/* transition: none; */
+/* color: #F28FAD; */
+/* background: transparent; */
+/* font-size: 4px; */
+/* } */
+
+/* #tags button.focused { */
+/* color: #ABE9B3; */
+/* border-top: 2px solid #ABE9B3; */
+/* border-bottom: 2px solid #ABE9B3; */
+/* } */
+
+/* #tags button:hover { */
+/* transition: none; */
+/* box-shadow: inherit; */
+/* text-shadow: inherit; */
+/* color: #FAE3B0; */
+/* border-color: #E8A2AF; */
+/* color: #E8A2AF; */
+/* } */
+
+/* #tags button.focused:hover { */
+/* color: #E8A2AF; */
+/* } */
