@@ -1,0 +1,41 @@
+[[language]]
+name = "c"
+auto-format = true
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config]
+# python.pythonPath = "./.venv/bin/python3"
+python.analysis.lint = true
+python.analysis.inlayHint.enable = true
+python.analysis.autoSearchPaths = true
+python.analysis.diagnosticMode = "workspace"
+python.analysis.useLibraryCodeForType = true
+# python.analysis.logLevel = "Error"
+# python.analysis.typeCheckingMode = "off"
+python.analysis.autoImoprtCompletion = true
+python.analysis.reportOptionalSubscript = false
+python.analysis.reportOptionalMemberAccess = false
+
+[language-server.ruff]
+command = "ruff"
+args = ["server", "-q", "--preview"] 
+
+[[language]]
+name = "python"
+language-servers = [ "ruff" ]
+auto-format = true
+
+[[language]]
+name = "python"
+language-id = "python"
+# file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt", { glob = ".python_history" }, { glob = ".pythonstartup" }, { glob = ".pythonrc" }, { glob = "SConstruct" }, { glob = "SConscript" }]
+# shebangs = ["python"]
+# roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", "requirements.txt", ".venv/", ".git"]
+# comment-token = "#"
+language-servers = [ {name = "pyright"}, "ruff" ]
+auto-format = true
+formatter = { command = "uvx", args = ["ruff","format", "-" ] }
+

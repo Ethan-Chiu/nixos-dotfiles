@@ -17,6 +17,16 @@ select = "underline"
 render = true
 character = "┆"
 
+[editor.statusline]
+left = [ "mode", "spinner", "spacer", "version-control", "file-name", "read-only-indicator", "file-modification-indicator" ]
+center = [ "diagnostics", "register" ]
+right = [ "selections", "primary-selection-length", "separator", "position", "position-percentage", "spacer", "separator", "file-encoding", "file-line-ending", "file-type" ]
+separator = "┆"
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+
 [keys.insert]
 # Maps `jk` to exit insert mode
 j = { k = "normal_mode" } 
@@ -24,3 +34,10 @@ k = { j = "normal_mode" }
 
 [keys.normal]
 D = "kill_to_line_end"
+L = "goto_next_buffer"
+H = "goto_previous_buffer"
+A-w = ":buffer-close"
+
+[keys.normal.space.w]
+c = ":config-open"
+r = ":config-reload"
