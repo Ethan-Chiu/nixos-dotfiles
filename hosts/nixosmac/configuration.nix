@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./t2-fan.nix
+      ./suspend-fix-t2.nix
     ];
 
   hardware.firmware = [
