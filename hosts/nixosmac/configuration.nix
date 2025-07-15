@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nordvpnModule, ... }:
 
 {
   imports =
@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./t2-fan.nix
       ./suspend-fix-t2.nix
+      nordvpnModule
     ];
 
   hardware.firmware = [
@@ -76,6 +77,8 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  services.journald.extraConfig = "SystemMaxUse=100M";
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -94,6 +97,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  ethan.services.custom.nordvpn.enable = true;
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
@@ -109,7 +113,7 @@
   users.users.ethan = {
     isNormalUser = true;
     description = "Ethan";
-    extraGroups = [ "networkmanager" "wheel" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "video" "nordvpn"];
     packages = with pkgs; [
   #     tree
       nix-prefetch-github
@@ -142,7 +146,6 @@
     };
   };
 
-  # programs.firefox.enable = true;
   programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -29,10 +29,11 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+    nixosModules.nordvpn = import ./modules/nordvpn.nix;
     nixosConfigurations = {
       nixosmac = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; nordvpnModule = self.nixosModules.nordvpn; };
         modules = [
           ./hosts/nixosmac/configuration.nix
           nixos-hardware.nixosModules.apple-t2
