@@ -76,6 +76,16 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-chewing
+      ];
+      waylandFrontend = true;
+    };
+  };
 
   services.journald.extraConfig = "SystemMaxUse=100M";
 
