@@ -92,6 +92,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
   services.connman.wifi.backend = "iwd";
@@ -139,6 +140,7 @@
   #   }) + "/overlay.nix")
   # ];
 
+  # TODO: refactor
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -153,6 +155,19 @@
         .zen-wrapped
       ''; # or just "zen" if you use unwrapped package
       mode = "0755";
+    };
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # TODO: refactor
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
     };
   };
 
