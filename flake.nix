@@ -29,7 +29,9 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+
     nixosModules.nordvpn = import ./modules/nordvpn.nix;
+
     nixosConfigurations = {
       nixosmac = lib.nixosSystem {
         inherit system;
@@ -47,6 +49,7 @@
         modules = [ ./hosts/nixos/configuration.nix ];
       };
     };
+
     homeConfigurations = {
       ethan = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
