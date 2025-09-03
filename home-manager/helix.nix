@@ -19,5 +19,5 @@ in {
     hxc = "hx $HOME/.config";
   };
 
-  # xdg.configFile.helix.source = ./helix;
+  xdg.configFile.helix.source = ./helix;
 }
